@@ -219,35 +219,79 @@ describe("postman-request-command", () => {
   });
 
   describe("httpRequest", () => {
-    const url = new Url({
-      protocol: "https",
-      host: ["api", "harvestapp", "com"],
-      path: ["v2", "projects", ":project_id"],
-      query: [
-        {
-          key: "client_id",
-          value: "",
-          description: "The ID of the client to associate this project with.",
-        },
-        {
-          key: "name",
-          value: "",
-          description: "The name of the project.",
-        },
-      ],
-      variable: [
-        {
-          key: "project_id",
-          value: "",
-        },
-      ],
-    });
+    const makeProjectUrl = () =>
+      new Url({
+        protocol: "https",
+        host: ["api", "harvestapp", "com"],
+        path: ["v2", "projects", ":project_id"],
+        query: [
+          {
+            key: "client_id",
+            value: "",
+            description: "The ID of the client to associate this project with.",
+          },
+          {
+            key: "name",
+            value: "",
+            description: "The name of the project.",
+          },
+        ],
+        variable: [
+          {
+            key: "project_id",
+            value: "",
+          },
+        ],
+      });
+
+    const makeTimeEntriesUrl = () =>
+      new Url({
+        protocol: "https",
+        host: ["api", "harvestapp", "com"],
+        path: ["v2", "time_entries", ":time_entry_id"],
+        query: [
+          {
+            key: "project_id",
+            value: "",
+          },
+          {
+            key: "task_id",
+            value: "",
+          },
+          {
+            key: "spent_date",
+            value: "",
+          },
+          {
+            key: "external_reference[id]",
+            value: "",
+            disabled: true,
+          },
+          {
+            key: "external_reference[group_id]",
+            value: "",
+            disabled: true,
+          },
+          {
+            key: "external_reference[permalink]",
+            value: "",
+            disabled: true,
+          },
+        ],
+        variable: [
+          {
+            key: "time_entry_id",
+            value: "",
+          },
+        ],
+      });
 
     afterEach(() => {
       vi.clearAllMocks();
     });
 
     it("should add query as query string for GET request", async () => {
+      const url = makeProjectUrl();
       global.fetch = vi.fn().mockResolvedValue(mockFetchResponse({ data: {} }));
 
       await httpRequest("GET", url, {
@@ -273,6 +317,7 @@ describe("postman-request-command", () => {
     it.each(["PATCH", "POST", "PUT"])(
       "should add query to body for %s request",
       async (method) => {
+        const url = makeProjectUrl();
         global.fetch = vi
           .fn()
           .mockResolvedValue(mockFetchResponse({ data: {} }));
@@ -301,6 +346,149 @@ describe("postman-request-command", () => {
         );
       },
     );
+
+    it("should serialize external_reference fields as a nested object", async () => {
+      const url = makeTimeEntriesUrl();
+      global.fetch = vi.fn().mockResolvedValue(mockFetchResponse({ data: {} }));
+
+      await httpRequest("POST", url, {
+        project_id: 3871864,
+        task_id: 3871865,
+        spent_date: "2026-03-17",
+        "external_reference[id]": "POTENTIAL-123",
+        "external_reference[group_id]": "POTENTIAL",
+        "external_reference[permalink]": "https://jira.example.com/browse/POTENTIAL-123",
+        time_entry_id: 99,
+      });
+
+      expect(fetch).toHaveBeenCalledWith(
+        `${url.protocol}://${url.getHost()}/v2/time_entries/99`,
+        {
+          body: JSON.stringify({
+            project_id: "3871864",
+            task_id: "3871865",
+            spent_date: "2026-03-17",
+            external_reference: {
+              id: "POTENTIAL-123",
+              group_id: "POTENTIAL",
+              permalink: "https://jira.example.com/browse/POTENTIAL-123",
+            },
+          }),
+          headers: {
+            "User-Agent": USER_AGENT,
+            Authorization: `Bearer ${mockConfig.accessToken}`,
+            "Harvest-Account-ID": mockConfig.accountId,
+            "Content-Type": "application/json",
+          },
+          method: "POST",
+        },
+      );
+    });
+
+    it("should serialize partial external_reference fields", async () => {
+      const url = makeTimeEntriesUrl();
+      global.fetch = vi.fn().mockResolvedValue(mockFetchResponse({ data: {} }));
+
+      await httpRequest("PATCH", url, {
+        "external_reference[id]": "POTENTIAL-123",
+        "external_reference[permalink]": "https://jira.example.com/browse/POTENTIAL-123",
+        time_entry_id: 99,
+      });
+
+      expect(fetch).toHaveBeenCalledWith(
+        `${url.protocol}://${url.getHost()}/v2/time_entries/99`,
+        {
+          body: JSON.stringify({
+            external_reference: {
+              id: "POTENTIAL-123",
+              permalink: "https://jira.example.com/browse/POTENTIAL-123",
+            },
+          }),
+          headers: {
+            "User-Agent": USER_AGENT,
+            Authorization: `Bearer ${mockConfig.accessToken}`,
+            "Harvest-Account-ID": mockConfig.accountId,
+            "Content-Type": "application/json",
+          },
+          method: "PATCH",
+        },
+      );
+    });
+
+    it("should preserve array-style params in the request body", async () => {
+      const url = new Url({
+        protocol: "https",
+        host: ["api", "harvestapp", "com"],
+        path: ["v2", "roles"],
+        query: [
+          {
+            key: "name",
+            value: "",
+          },
+        ],
+      });
+      global.fetch = vi.fn().mockResolvedValue(mockFetchResponse({ data: {} }));
+
+      await httpRequest("POST", url, {
+        name: "Engineering",
+        "user_ids[0]": 1,
+        "user_ids[1]": 2,
+      });
+
+      expect(fetch).toHaveBeenCalledWith(
+        `${url.protocol}://${url.getHost()}/v2/roles`,
+        {
+          body: JSON.stringify({
+            name: "Engineering",
+            user_ids: ["1", "2"],
+          }),
+          headers: {
+            "User-Agent": USER_AGENT,
+            Authorization: `Bearer ${mockConfig.accessToken}`,
+            "Harvest-Account-ID": mockConfig.accountId,
+            "Content-Type": "application/json",
+          },
+          method: "POST",
+        },
+      );
+    });
+
+    it("should preserve repeated array params already present on the url", async () => {
+      const url = new Url({
+        protocol: "https",
+        host: ["api", "harvestapp", "com"],
+        path: ["v2", "roles"],
+        query: [
+          {
+            key: "user_ids[]",
+            value: "1",
+          },
+          {
+            key: "user_ids[]",
+            value: "2",
+          },
+        ],
+      });
+      global.fetch = vi.fn().mockResolvedValue(mockFetchResponse({ data: {} }));
+
+      await httpRequest("POST", url, {});
+
+      expect(fetch).toHaveBeenCalledWith(
+        `${url.protocol}://${url.getHost()}/v2/roles`,
+        {
+          body: JSON.stringify({
+            user_ids: ["1", "2"],
+          }),
+          headers: {
+            "User-Agent": USER_AGENT,
+            Authorization: `Bearer ${mockConfig.accessToken}`,
+            "Harvest-Account-ID": mockConfig.accountId,
+            "Content-Type": "application/json",
+          },
+          method: "POST",
+        },
+      );
+    });
   });
 
   describe("urlArgOptions", () => {

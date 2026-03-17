@@ -173,7 +173,7 @@ export async function httpRequest<T = any>(
     urlPath = url.getPathWithQuery();
   } else {
     urlPath = url.getPath();
-    options.body = JSON.stringify(url.query.toObject(true));
+    options.body = JSON.stringify(normalizeBody(url.query.toObject(true)));
   }
 
   const res = await fetch(
@@ -198,6 +198,63 @@ export async function httpRequest<T = any>(
   }
 
   return { data: await res.json() };
+}
+
+function normalizeBody(
+  body: Record<string, string | string[]>,
+): Record<string, unknown> {
+  return Object.entries(body).reduce<Record<string, unknown>>(
+    (normalized, [key, value]) => mergeBracketNotation(normalized, key, value),
+    {},
+  );
+}
+
+function mergeBracketNotation(
+  target: Record<string, unknown>,
+  key: string,
+  value: string | string[],
+): Record<string, unknown> {
+  const path = Array.from(key.matchAll(/([^[\]]+)|\[([^[\]]*)\]/g)).map(
+    ([, head, nested]) => head ?? nested ?? "",
+  );
+  const normalizedPath =
+    Array.isArray(value) && path[path.length - 1] === "" ? path.slice(0, -1) : path;
+
+  if (!normalizedPath.length) {
+    target[key] = value;
+    return target;
+  }
+
+  return mergePath(target, normalizedPath, value) as Record<string, unknown>;
+}
+
+function mergePath(
+  current: unknown,
+  path: string[],
+  value: string | string[],
+): unknown {
+  if (!path.length) {
+    return value;
+  }
+
+  const [segment, ...rest] = path;
+  const isArraySegment = segment === "" || /^\d+$/.test(segment);
+
+  if (isArraySegment) {
+    const array = Array.isArray(current) ? [...current] : [];
+    const index = segment === "" ? array.length : Number(segment);
+    array[index] = mergePath(array[index], rest, value);
+    return array;
+  }
+
+  const object =
+    current && typeof current === "object" && !Array.isArray(current)
+      ? { ...(current as Record<string, unknown>) }
+      : {};
+
+  object[segment] = mergePath(object[segment], rest, value);
+
+  return object;
 }
 
 /**
