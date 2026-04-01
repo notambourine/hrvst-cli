@@ -1,6 +1,7 @@
 import chalk from "chalk";
 import open from "open";
 import http from "http";
+import crypto from "crypto";
 import { URLSearchParams } from "url";
 import { saveConfig } from "../utils/config";
 
@@ -12,47 +13,7 @@ export const command = "login";
 export const description = "Log into Harvest";
 export const builder = {};
 
-export const handler = async (): Promise<void> => {
-  const server = http
-    .createServer(async (req, res) => {
-      const queryString = req.url?.split("?")[1] || "";
-      const params = new URLSearchParams(queryString);
-
-      const error = params.get("error");
-      if (error) {
-        console.error(chalk.red(error));
-      } else {
-        const accessToken = params.get("access_token");
-        const scope = params.get("scope");
-
-        if (accessToken && scope?.match(/^harvest:\d+$/)) {
-          await saveConfig({
-            accessToken,
-            accountId: scope.split(":")[1],
-          });
-          console.log(
-            chalk.green("Success! You are now authenticated with Harvest."),
-          );
-        } else {
-          console.error(
-            chalk.red("Error getting access token and account id."),
-          );
-        }
-      }
-
-      res.write(LOGIN_HTML);
-      res.end();
-
-      req.socket.end();
-      req.socket.destroy();
-      server.close();
-    })
-    .listen(PORT);
-
-  open(
-    `${BASE_URL}/oauth2/authorize?client_id=${CLIENT_ID}&response_type=token`,
-  );
-};
+const LOGIN_TIMEOUT_MS = 5 * 60 * 1000; // 5 minutes
 
 const LOGIN_HTML = `<!DOCTYPE html>
 <html lang="en">
@@ -87,3 +48,65 @@ const LOGIN_HTML = `<!DOCTYPE html>
     </main>
   </body>
 </html>`;
+
+export const handler = async (): Promise<void> => {
+  const state = crypto.randomBytes(16).toString("hex");
+
+  const server = http
+    .createServer(async (req, res) => {
+      const queryString = req.url?.split("?")[1] || "";
+      const params = new URLSearchParams(queryString);
+
+      const error = params.get("error");
+      if (error) {
+        console.error(chalk.red("Authentication error."));
+      } else {
+        const returnedState = params.get("state");
+        if (returnedState !== state) {
+          console.error(chalk.red("Invalid state parameter. Login aborted."));
+          res.write(LOGIN_HTML);
+          res.end();
+          req.socket.end();
+          req.socket.destroy();
+          server.close();
+          return;
+        }
+
+        const accessToken = params.get("access_token");
+        const scope = params.get("scope");
+
+        if (accessToken && scope?.match(/^harvest:\d+$/)) {
+          await saveConfig({
+            accessToken,
+            accountId: scope.split(":")[1],
+          });
+          console.log(
+            chalk.green("Success! You are now authenticated with Harvest."),
+          );
+        } else {
+          console.error(
+            chalk.red("Error getting access token and account id."),
+          );
+        }
+      }
+
+      res.write(LOGIN_HTML);
+      res.end();
+
+      req.socket.end();
+      req.socket.destroy();
+      server.close();
+    })
+    .listen(PORT, "localhost");
+
+  const timeout = setTimeout(() => {
+    server.close();
+    console.error(chalk.red("Login timed out. Please try again."));
+  }, LOGIN_TIMEOUT_MS);
+
+  server.on("close", () => clearTimeout(timeout));
+
+  open(
+    `${BASE_URL}/oauth2/authorize?client_id=${CLIENT_ID}&response_type=token&state=${state}`,
+  );
+};

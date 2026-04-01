@@ -35,9 +35,12 @@ export async function saveConfig(config: Partial<Config>): Promise<void> {
     await fs.promises.writeFile(
       await configPath(),
       JSON.stringify(Object.assign({}, existingConfig, config)),
+      { mode: 0o600 },
     );
   } catch (error) {
-    await fs.promises.writeFile(await configPath(), JSON.stringify(config));
+    await fs.promises.writeFile(await configPath(), JSON.stringify(config), {
+      mode: 0o600,
+    });
   }
 }
 
@@ -45,7 +48,7 @@ async function configPath(): Promise<string> {
   const dir = path.join(ospath.home(), ".hrvst");
 
   if (!fs.existsSync(dir)) {
-    await fs.promises.mkdir(dir);
+    await fs.promises.mkdir(dir, { mode: 0o700 });
   }
 
   return path.join(dir, "config.json");
