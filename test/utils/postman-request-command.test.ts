@@ -357,7 +357,8 @@ describe("postman-request-command", () => {
         spent_date: "2026-03-17",
         "external_reference[id]": "POTENTIAL-123",
         "external_reference[group_id]": "POTENTIAL",
-        "external_reference[permalink]": "https://jira.example.com/browse/POTENTIAL-123",
+        "external_reference[permalink]":
+          "https://jira.example.com/browse/POTENTIAL-123",
         time_entry_id: 99,
       });
 
@@ -391,7 +392,8 @@ describe("postman-request-command", () => {
 
       await httpRequest("PATCH", url, {
         "external_reference[id]": "POTENTIAL-123",
-        "external_reference[permalink]": "https://jira.example.com/browse/POTENTIAL-123",
+        "external_reference[permalink]":
+          "https://jira.example.com/browse/POTENTIAL-123",
         time_entry_id: 99,
       });
 

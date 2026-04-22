@@ -218,7 +218,9 @@ function mergeBracketNotation(
     ([, head, nested]) => head ?? nested ?? "",
   );
   const normalizedPath =
-    Array.isArray(value) && path[path.length - 1] === "" ? path.slice(0, -1) : path;
+    Array.isArray(value) && path[path.length - 1] === ""
+      ? path.slice(0, -1)
+      : path;
 
   if (!normalizedPath.length) {
     target[key] = value;
