@@ -15,16 +15,16 @@ test("hrvst projects task-assignments list-by-project", async () => {
 
     Options:
           --help          Show help                                        [boolean]
-      -p, --project_id    The ID of the project that contains the task assignments y
-                          ou're retrieving.                               [required]
+      -p, --project_id    The ID of the project that contains the task assignments
+                          you're retrieving.                              [required]
       -i, --is_active     Pass true to only return active task assignments and false
-                           to return inactive task assignments.
+                          to return inactive task assignments.
       -u, --update_since  Only return task assignments that have been updated since
                           the given date and time.
-      -a, --page          The page number to use in pagination. Use \`all\` to retriev
-                          e all pages.
-      -e, --per_page      The number of records to return per page. Can range betwee
-                          n 1 and 2000.
+      -a, --page          The page number to use in pagination. Use \`all\` to
+                          retrieve all pages.
+      -e, --per_page      The number of records to return per page. Can range
+                          between 1 and 2000.
       -f, --fields        Comma separated list of fields to display in the output.
       -o, --output        The output format: json, table"
   `);

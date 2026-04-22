@@ -15,12 +15,12 @@ test("hrvst projects user-assignments delete", async () => {
 
     Options:
           --help                Show help                                  [boolean]
-      -p, --project_id          The ID of the project that contains the user assignm
-                                ent you're deleting.                      [required]
+      -p, --project_id          The ID of the project that contains the user
+                                assignment you're deleting.               [required]
       -u, --user_assignment_id  The ID of the user assignment you're deleting.
                                                                           [required]
-      -f, --fields              Comma separated list of fields to display in the out
-                                put.
+      -f, --fields              Comma separated list of fields to display in the
+                                output.
       -o, --output              The output format: json, table"
   `);
 });

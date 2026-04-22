@@ -13,8 +13,8 @@ test("hrvst roles list", async () => {
 
     Options:
           --help      Show help                                            [boolean]
-      -p, --page      The page number to use in pagination. Use \`all\` to retrieve al
-                      l pages.
+      -p, --page      The page number to use in pagination. Use \`all\` to retrieve
+                      all pages.
       -e, --per_page  The number of records to return per page. Can range between
                       1 and 2000.
       -f, --fields    Comma separated list of fields to display in the output.

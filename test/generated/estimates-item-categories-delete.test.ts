@@ -15,8 +15,8 @@ test("hrvst estimates item-categories delete", async () => {
 
     Options:
           --help                       Show help                           [boolean]
-      -e, --estimate_item_category_id  The ID of the estimate item category you're d
-                                       eleting.                           [required]
+      -e, --estimate_item_category_id  The ID of the estimate item category you're
+                                       deleting.                          [required]
       -f, --fields                     Comma separated list of fields to display in
                                        the output.
       -o, --output                     The output format: json, table"

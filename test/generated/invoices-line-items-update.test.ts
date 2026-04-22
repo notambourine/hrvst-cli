@@ -15,20 +15,20 @@ test("hrvst invoices line-items update", async () => {
 
     Options:
           --help                      Show help                            [boolean]
-      -i, --invoice_id                The ID of the invoice that contains the line i
-                                      tems you're updating.               [required]
+      -i, --invoice_id                The ID of the invoice that contains the line
+                                      items you're updating.              [required]
       -l, --line_items[0]id           The ID of the line item you want to update.
                                                                           [required]
       -n, --line_items[0]kind         The name of an invoice item category.
       -e, --line_items[0]description  Text description of the line item.
       -t, --line_items[0]unit_price   The individual price per unit.
       -m, --line_items[0]quantity     The unit quantity of the item.
-      -s, --line_items[0]taxed        Whether the invoice’s tax percentage applies t
-                                      o this line item. Defaults to false.
+      -s, --line_items[0]taxed        Whether the invoice’s tax percentage applies
+                                      to this line item. Defaults to false.
       -a, --line_items[0]taxed2       Whether the invoice’s tax2 percentage applies
                                       to this line item. Defaults to false.
-      -f, --fields                    Comma separated list of fields to display in t
-                                      he output.
+      -f, --fields                    Comma separated list of fields to display in
+                                      the output.
       -o, --output                    The output format: json, table"
   `);
 });

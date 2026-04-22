@@ -15,51 +15,51 @@ test("hrvst projects create", async () => {
 
     Options:
           --help                                Show help                  [boolean]
-      -c, --client_id                           The ID of the client to associate th
-                                                is project with.          [required]
+      -c, --client_id                           The ID of the client to associate
+                                                this project with.        [required]
       -n, --name                                The name of the project.  [required]
-      -i, --is_billable                         Whether the project is billable or n
-                                                ot.                       [required]
-      -b, --bill_by                             The method by which the project is i
-                                                nvoiced. Options: Project, Tasks, Pe
-                                                ople, or none.            [required]
-      -u, --budget_by                           The method by which the project is b
-                                                udgeted. Options, project, project_c
-                                                ost, task, task_fees, person, or non
-                                                e.                        [required]
-      -s, --is_active                           Whether the project is active or arc
-                                                hived. Defaults to true
-      -f, --is_fixed_fee                        Whether the project is a fixed-fee p
-                                                roject or not.
+      -i, --is_billable                         Whether the project is billable or
+                                                not.                      [required]
+      -b, --bill_by                             The method by which the project is
+                                                invoiced. Options: Project, Tasks,
+                                                People, or none.          [required]
+      -u, --budget_by                           The method by which the project is
+                                                budgeted. Options, project,
+                                                project_cost, task, task_fees,
+                                                person, or none.          [required]
+      -s, --is_active                           Whether the project is active or
+                                                archived. Defaults to true
+      -f, --is_fixed_fee                        Whether the project is a fixed-fee
+                                                project or not.
       -h, --hourly_rate                         Rate for projects billed by Project
                                                 Hourly Rate.
       -d, --budget                              The budget in hours for the project
                                                 when budgeting by time.
-      -g, --budget_is_monthly                   Option to have the budget reset ever
-                                                y month. Defaults to false.
-      -o, --notify_when_over_budget             Whether project managers should be n
-                                                otified when the project goes over b
-                                                udget. Defaults to false.
-      -v, --over_budget_notification_percentag  Percentage value used to trigger ove
-      e                                         r budget email alerts. Example: use
-                                                10.0 for 10.0%.
+      -g, --budget_is_monthly                   Option to have the budget reset
+                                                every month. Defaults to false.
+      -o, --notify_when_over_budget             Whether project managers should be
+                                                notified when the project goes over
+                                                budget. Defaults to false.
+      -v,                                       Percentage value used to trigger
+      --over_budget_notification_percentage     over budget email alerts. Example:
+                                                use 10.0 for 10.0%.
       -w, --show_budget_to_all                  Option to show project budget to all
-                                                 employees. Does not apply to Total
-                                                Project Fee projects. Defaults to fa
-                                                lse.
+                                                employees. Does not apply to Total
+                                                Project Fee projects. Defaults to
+                                                false.
       -t, --cost_budget                         The monetary budget for the project
                                                 when budgeting by money.
-      -e, --cost_budget_include_expenses        Option for budget of Total Project F
-                                                ees projects to include tracked expe
-                                                nses. Defaults to false.
-          --fee                                 The amount you plan to invoice for t
-                                                he project. Only used by fixed-fee p
-                                                rojects.
+      -e, --cost_budget_include_expenses        Option for budget of Total Project
+                                                Fees projects to include tracked
+                                                expenses. Defaults to false.
+          --fee                                 The amount you plan to invoice for
+                                                the project. Only used by fixed-fee
+                                                projects.
           --notes                               Notes about the project.
       -a, --starts_on                           Date the project was started.
           --ends_on                             Date the project will end.
-      -l, --fields                              Comma separated list of fields to di
-                                                splay in the output.
+      -l, --fields                              Comma separated list of fields to
+                                                display in the output.
       -p, --output                              The output format: json, table"
   `);
 });

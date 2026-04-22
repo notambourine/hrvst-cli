@@ -15,8 +15,8 @@ test("hrvst estimates line-items create", async () => {
 
     Options:
           --help                      Show help                            [boolean]
-      -e, --estimate_id               The ID of the estimate that you're creating th
-                                      e line item for.                    [required]
+      -e, --estimate_id               The ID of the estimate that you're creating
+                                      the line item for.                  [required]
       -l, --line_items[0]kind         The name of an estimate item category.
                                                                           [required]
       -i, --line_items[0]description  Text description of the line item.  [required]
@@ -25,9 +25,9 @@ test("hrvst estimates line-items create", async () => {
       -m, --line_items[0]taxed        Whether the estimate's tax percentage applies
                                       to this line item.                  [required]
       -s, --line_items[0]taxed2       Whether the estimate's tax2 percentage applies
-                                       to this line item.                 [required]
-      -f, --fields                    Comma separated list of fields to display in t
-                                      he output.
+                                      to this line item.                  [required]
+      -f, --fields                    Comma separated list of fields to display in
+                                      the output.
       -o, --output                    The output format: json, table"
   `);
 });

@@ -17,21 +17,21 @@ test("hrvst expenses create", async () => {
           --help                 Show help                                 [boolean]
       -p, --project_id           The ID of the project associated with this expense.
                                                                           [required]
-      -e, --expense_category_id  The ID of the expense category this expense is bein
-                                 g tracked against.                       [required]
+      -e, --expense_category_id  The ID of the expense category this expense is
+                                 being tracked against.                   [required]
       -s, --spent_date           Date the expense occurred.               [required]
-      -u, --user_id              The ID of the user associated with this expense. De
-                                 faults to the ID of the currently authenticated use
-                                 r.
-      -n, --units                The quantity of units to use in calculating the tot
-                                 al_cost of the expense.
+      -u, --user_id              The ID of the user associated with this expense.
+                                 Defaults to the ID of the currently authenticated
+                                 user.
+      -n, --units                The quantity of units to use in calculating the
+                                 total_cost of the expense.
       -t, --total_cost           The total amount of the expense.
       -o, --notes                Textual notes used to describe the expense.
 
-      -b, --billable             Whether this expense is billable or not. Defaults t
-                                 o true.
-      -f, --fields               Comma separated list of fields to display in the ou
-                                 tput.
+      -b, --billable             Whether this expense is billable or not. Defaults
+                                 to true.
+      -f, --fields               Comma separated list of fields to display in the
+                                 output.
           --output               The output format: json, table"
   `);
 });

@@ -15,12 +15,12 @@ test("hrvst projects task-assignments delete", async () => {
 
     Options:
           --help                Show help                                  [boolean]
-      -p, --project_id          The ID of the project that contains the task assignm
-                                ents you're deleting.                     [required]
+      -p, --project_id          The ID of the project that contains the task
+                                assignments you're deleting.              [required]
       -t, --task_assignment_id  The ID of the task assignment you're deleting.
                                                                           [required]
-      -f, --fields              Comma separated list of fields to display in the out
-                                put.
+      -f, --fields              Comma separated list of fields to display in the
+                                output.
       -o, --output              The output format: json, table"
   `);
 });

@@ -19,24 +19,25 @@ test("hrvst invoices update", async () => {
       -c, --client_id       The ID of the client this invoice belongs to.
       -r, --retainer_id     The ID of the retainer associated with this invoice.
       -e, --estimate_id     The ID of the estimate associated with this invoice.
-      -n, --number          If no value is set, the number will be automatically gen
-                            erated.
+      -n, --number          If no value is set, the number will be automatically
+                            generated.
       -p, --purchase_order  The purchase order number.
-      -t, --tax             This percentage is applied to the subtotal, including li
-                            ne items and discounts. Example: use 10.0 for 10.0%.
-      -a, --tax2            This percentage is applied to the subtotal, including li
-                            ne items and discounts. Example: use 10.0 for 10.0%.
-      -d, --discount        This percentage is subtracted from the subtotal. Example
-                            : use 10.0 for 10.0%.
+      -t, --tax             This percentage is applied to the subtotal, including
+                            line items and discounts. Example: use 10.0 for 10.0%.
+      -a, --tax2            This percentage is applied to the subtotal, including
+                            line items and discounts. Example: use 10.0 for 10.0%.
+      -d, --discount        This percentage is subtracted from the subtotal.
+                            Example: use 10.0 for 10.0%.
       -s, --subject         The invoice subject.
       -o, --notes           Any additional notes to include on the invoice.
-      -u, --currency        The currency used by the invoice. If not provided, the c
-                            lient’s currency will be used. See a list of supported c
-                            urrencies
+      -u, --currency        The currency used by the invoice. If not provided, the
+                            client’s currency will be used. See a list of supported
+                            currencies
           --issue_date      Date the invoice was issued. Defaults to today’s date.
           --due_date        Date the invoice is due.
-      -y, --payment_term    The timeframe in which the invoice should be paid. Optio
-                            ns: upon receipt, net 15, net 30, net 45, or net 60.
+      -y, --payment_term    The timeframe in which the invoice should be paid.
+                            Options: upon receipt, net 15, net 30, net 45, or net
+                            60.
       -f, --fields          Comma separated list of fields to display in the output.
           --output          The output format: json, table"
   `);

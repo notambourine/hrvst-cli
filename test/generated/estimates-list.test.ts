@@ -15,20 +15,20 @@ test("hrvst estimates list", async () => {
 
     Options:
           --help           Show help                                       [boolean]
-      -c, --client_id      Only return estimates belonging to the client with the gi
-                           ven ID.
-      -u, --updated_since  Only return estimates that have been updated since the gi
-                           ven date and time.
+      -c, --client_id      Only return estimates belonging to the client with the
+                           given ID.
+      -u, --updated_since  Only return estimates that have been updated since the
+                           given date and time.
       -f, --from           Only return estimates with an issue_date on or after the
                            given date.
       -t, --to             Only return estimates with an issue_date on or before the
-                            given date.
-      -s, --state          Only return estimates with a state matching the value pro
-                           vided. Options: draft, sent, accepted, or declined.
-      -p, --page           The page number to use in pagination. Use \`all\` to retrie
-                           ve all pages.
-      -e, --per_page       The number of records to return per page. Can range betwe
-                           en 1 and 2000.
+                           given date.
+      -s, --state          Only return estimates with a state matching the value
+                           provided. Options: draft, sent, accepted, or declined.
+      -p, --page           The page number to use in pagination. Use \`all\` to
+                           retrieve all pages.
+      -e, --per_page       The number of records to return per page. Can range
+                           between 1 and 2000.
       -i, --fields         Comma separated list of fields to display in the output.
       -o, --output         The output format: json, table"
   `);

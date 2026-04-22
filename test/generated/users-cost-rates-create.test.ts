@@ -19,7 +19,7 @@ test("hrvst users cost-rates create", async () => {
                                                                           [required]
       -a, --amount      The amount of the cost rate.                      [required]
       -s, --start_date  The date the cost rate is effective. Cannot be a date in the
-                         future.
+                        future.
       -f, --fields      Comma separated list of fields to display in the output.
       -o, --output      The output format: json, table"
   `);

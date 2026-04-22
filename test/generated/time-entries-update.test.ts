@@ -17,26 +17,26 @@ test("hrvst time-entries update", async () => {
           --help                           Show help                       [boolean]
       -t, --time_entry_id                  The ID of the time entry you're updating.
                                                                           [required]
-      -p, --project_id                     The ID of the project to associate with t
-                                           he time entry.
+      -p, --project_id                     The ID of the project to associate with
+                                           the time entry.
       -a, --task_id                        The ID of the task to associate with the
                                            time entry.
-      -s, --spent_date                     The ISO 8601 formatted date the time entr
-                                           y was spent.
-      -r, --started_time                   The time the entry started. Defaults to t
-                                           he current time. Example: “8:00am”.
+      -s, --spent_date                     The ISO 8601 formatted date the time
+                                           entry was spent.
+      -r, --started_time                   The time the entry started. Defaults to
+                                           the current time. Example: “8:00am”.
       -e, --ended_time                     The time the entry ended.
       -h, --hours                          The current amount of time tracked.
       -n, --notes                          Any notes to be associated with the time
                                            entry.
-      -x, --external_reference[id]         The ID of the service's equivalent of a t
-                                           ask, card, etc.
-      -l, --external_reference[group_id]   The ID of the service's equivalent of a p
-                                           roject, board, etc.
-      -f, --external_reference[permalink]  The URL of where the time is being tracke
-                                           d.
+      -x, --external_reference[id]         The ID of the service's equivalent of a
+                                           task, card, etc.
+      -l, --external_reference[group_id]   The ID of the service's equivalent of a
+                                           project, board, etc.
+      -f, --external_reference[permalink]  The URL of where the time is being
+                                           tracked.
       -i, --fields                         Comma separated list of fields to display
-                                            in the output.
+                                           in the output.
       -o, --output                         The output format: json, table"
   `);
 });

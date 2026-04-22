@@ -15,8 +15,8 @@ test("hrvst estimates line-items delete", async () => {
 
     Options:
           --help                   Show help                               [boolean]
-      -e, --estimate_id            The ID of the estimate that contains the line ite
-                                   m you're deleting.                     [required]
+      -e, --estimate_id            The ID of the estimate that contains the line
+                                   item you're deleting.                  [required]
       -l, --line_items[0]id        The ID of the line item you want to delete.
                                                                           [required]
       -i, --line_items[0]_destroy  Gives the command to delete the line item.

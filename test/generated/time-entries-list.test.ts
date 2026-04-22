@@ -15,29 +15,29 @@ test("hrvst time-entries list", async () => {
 
     Options:
           --help                   Show help                               [boolean]
-      -u, --user_id                Only return time entries belonging to the user wi
-                                   th the given ID.
+      -u, --user_id                Only return time entries belonging to the user
+                                   with the given ID.
       -c, --client_id              Only return time entries belonging to the client
                                    with the given ID.
-      -t, --task_id                Only return time entries belonging to the task wi
-                                   th the given ID.
-      -e, --external_reference_id  Only return time entries with the given external_
-                                   reference ID.
-      -i, --is_billed              Pass true to only return time entries that have b
-                                   een invoiced and false to return time entries tha
-                                   t have not been invoiced.
+      -t, --task_id                Only return time entries belonging to the task
+                                   with the given ID.
+      -e, --external_reference_id  Only return time entries with the given
+                                   external_reference ID.
+      -i, --is_billed              Pass true to only return time entries that have
+                                   been invoiced and false to return time entries
+                                   that have not been invoiced.
       -s, --is_running             Pass true to only return running time entries and
-                                    false to return non-running time entries.
-      -p, --updated_since          Only return time entries that have been updated s
-                                   ince the given date and time.
+                                   false to return non-running time entries.
+      -p, --updated_since          Only return time entries that have been updated
+                                   since the given date and time.
       -f, --from                   Only return time entries with a spent_date on or
                                    after the given date.
       -o, --to                     Only return time entries with a spent_date on or
                                    before the given date.
-      -a, --page                   The page number to use in pagination. Use \`all\` t
-                                   o retrieve all pages.
-      -r, --per_page               The number of records to return per page. Can r
-                                   ange between 1 and 2000.
+      -a, --page                   The page number to use in pagination. Use \`all\`
+                                   to retrieve all pages.
+      -r, --per_page               The number of records to return per page. Can
+                                   range between 1 and 2000.
       -l, --fields                 Comma separated list of fields to display in the
                                    output.
           --output                 The output format: json, table"

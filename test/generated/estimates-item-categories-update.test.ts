@@ -11,13 +11,13 @@ test("hrvst estimates item-categories update", async () => {
   expect(stdout).toMatchInlineSnapshot(`
     "cli.js estimates item-categories update
 
-    Updates the specific estimate item category by setting the values of the paramet
-    ers passed
+    Updates the specific estimate item category by setting the values of the
+    parameters passed
 
     Options:
           --help                       Show help                           [boolean]
-      -e, --estimate_item_category_id  The ID of the estimate item category you're u
-                                       pdating.                           [required]
+      -e, --estimate_item_category_id  The ID of the estimate item category you're
+                                       updating.                          [required]
       -n, --name                       The name of the estimate item category.
                                                                           [required]
       -f, --fields                     Comma separated list of fields to display in

@@ -15,16 +15,16 @@ test("hrvst projects list", async () => {
 
     Options:
           --help           Show help                                       [boolean]
-      -i, --is_active      Pass true to only return active projects and false to ret
-                           urn inactive projects.
-      -c, --client_id      Only return projects belonging to the client with the giv
-                           en ID.
-      -u, --updated_since  Only return projects that have been updated since the giv
-                           en date and time.
-      -p, --page           The page number to use in pagination. Use \`all\` to retrie
-                           ve all pages.
-      -e, --per_page       The number of records to return per page. Can range bet
-                           ween 1 and 2000.
+      -i, --is_active      Pass true to only return active projects and false to
+                           return inactive projects.
+      -c, --client_id      Only return projects belonging to the client with the
+                           given ID.
+      -u, --updated_since  Only return projects that have been updated since the
+                           given date and time.
+      -p, --page           The page number to use in pagination. Use \`all\` to
+                           retrieve all pages.
+      -e, --per_page       The number of records to return per page. Can range
+                           between 1 and 2000.
       -f, --fields         Comma separated list of fields to display in the output.
       -o, --output         The output format: json, table"
   `);

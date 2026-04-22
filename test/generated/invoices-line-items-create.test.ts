@@ -16,19 +16,20 @@ test("hrvst invoices line-items create", async () => {
     Options:
           --help                      Show help                            [boolean]
       -i, --invoice_id                The ID of the invoice you're creating the line
-                                       item for.                          [required]
+                                      item for.                           [required]
       -l, --line_items[0]kind         The name of an invoice item category.
                                                                           [required]
       -n, --line_items[0]description  Text description of the line item.  [required]
       -e, --line_items[0]unit_price   The individual price per unit.      [required]
       -t, --line_items[0]quantity     The unit quantity of the item.      [required]
-      -m, --line_items[0]taxed        Whether the invoice’s tax percentage applies t
-                                      o this line item. Defaults to false.[required]
+      -m, --line_items[0]taxed        Whether the invoice’s tax percentage applies
+                                      to this line item. Defaults to false.
+                                                                          [required]
       -s, --line_items[0]taxed2       Whether the invoice’s tax2 percentage applies
                                       to this line item. Defaults to false.
                                                                           [required]
-      -f, --fields                    Comma separated list of fields to display in t
-                                      he output.
+      -f, --fields                    Comma separated list of fields to display in
+                                      the output.
       -o, --output                    The output format: json, table"
   `);
 });

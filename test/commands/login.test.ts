@@ -25,12 +25,14 @@ describe("login", () => {
     await handler();
 
     expect(mockedOpen).toHaveBeenCalledTimes(1);
-    expect(mockedOpen).toHaveBeenCalledWith(
-      "https://id.getharvest.com/oauth2/authorize?client_id=xqrh-rWpCecJlp9L-i0dwu_K&response_type=token",
+    const openUrl = vi.mocked(mockedOpen).mock.calls[0][0] as string;
+    expect(openUrl).toMatch(
+      /^https:\/\/id\.getharvest\.com\/oauth2\/authorize\?client_id=xqrh-rWpCecJlp9L-i0dwu_K&response_type=token&state=[a-f0-9]{32}$/,
     );
+    const state = new URL(openUrl).searchParams.get("state");
 
     await oauthServer.get(
-      `?access_token=${accessToken}&expires_in=1209599&scope=${scope}&token_type=bearer`,
+      `?access_token=${accessToken}&expires_in=1209599&scope=${scope}&state=${state}&token_type=bearer`,
     );
 
     expect(saveConfig).toHaveBeenCalledTimes(1);
@@ -51,6 +53,8 @@ describe("login", () => {
     await oauthServer.get(`?error=${error}`);
 
     expect(saveConfig).not.toHaveBeenCalled();
-    expect(consoleErrorSpy).toHaveBeenCalledWith(chalk.red(error));
+    expect(consoleErrorSpy).toHaveBeenCalledWith(
+      chalk.red("Authentication error."),
+    );
   });
 });

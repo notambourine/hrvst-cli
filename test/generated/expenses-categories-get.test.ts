@@ -17,8 +17,8 @@ test("hrvst expenses categories get", async () => {
           --help                 Show help                                 [boolean]
       -e, --expense_category_id  The ID of the expense category you're retrieving.
                                                                           [required]
-      -f, --fields               Comma separated list of fields to display in the ou
-                                 tput.
+      -f, --fields               Comma separated list of fields to display in the
+                                 output.
       -o, --output               The output format: json, table"
   `);
 });

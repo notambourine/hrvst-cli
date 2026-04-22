@@ -24,12 +24,12 @@ test("hrvst estimates line-items update", async () => {
       -t, --line_items[0]unit_price   The individual price per unit.
       -m, --line_items[0]quantity     The unit quantity of the item.
       -s, --line_items[0]taxed        Whether the estimate's tax percentage applies
-                                       to this line item.
-      -a, --line_items[0]taxed2       Whether the estimate's tax2 percentage applie
-                                      s to this line item.
+                                      to this line item.
+      -a, --line_items[0]taxed2       Whether the estimate's tax2 percentage
+                                      applies to this line item.
 
-      -f, --fields                    Comma separated list of fields to display in t
-                                      he output.
+      -f, --fields                    Comma separated list of fields to display in
+                                      the output.
       -o, --output                    The output format: json, table"
   `);
 });

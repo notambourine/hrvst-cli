@@ -15,18 +15,18 @@ test("hrvst estimates messages create", async () => {
 
     Options:
           --help                Show help                                  [boolean]
-      -e, --estimate_id         The ID of the invoice that you're creating the messa
-                                ge for.                                   [required]
+      -e, --estimate_id         The ID of the invoice that you're creating the
+                                message for.                              [required]
       -r, --recipients[0]email  Email of the message recipient.           [required]
       -c, --recipients[0]name   Name of the message recipient.            [required]
       -s, --subject             The message subject.
       -b, --body                The message body.
-      -n, --send_me_a_copy      Whether to email a copy of the message to the curren
-                                t user.
-      -v, --event_type          If provided, runs an event against the estimate. Opt
-                                ions: “accept”, “decline”, “re-open”, or “send”.
-      -f, --fields              Comma separated list of fields to display in the out
-                                put.
+      -n, --send_me_a_copy      Whether to email a copy of the message to the
+                                current user.
+      -v, --event_type          If provided, runs an event against the estimate.
+                                Options: “accept”, “decline”, “re-open”, or “send”.
+      -f, --fields              Comma separated list of fields to display in the
+                                output.
       -o, --output              The output format: json, table"
   `);
 });

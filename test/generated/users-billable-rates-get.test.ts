@@ -15,12 +15,12 @@ test("hrvst users billable-rates get", async () => {
 
     Options:
           --help              Show help                                    [boolean]
-      -u, --user_id           The ID of the user whose billable rate you're retrievi
-                              ng.                                         [required]
+      -u, --user_id           The ID of the user whose billable rate you're
+                              retrieving.                                 [required]
       -b, --billable_rate_id  The ID of the billable rate you're retrieving.
                                                                           [required]
-      -f, --fields            Comma separated list of fields to display in the outpu
-                              t.
+      -f, --fields            Comma separated list of fields to display in the
+                              output.
       -o, --output            The output format: json, table"
   `);
 });

@@ -11,16 +11,16 @@ test("hrvst invoices item-categories update", async () => {
   expect(stdout).toMatchInlineSnapshot(`
     "cli.js invoices item-categories update
 
-    Updates the specific invoice item category by setting the values of the paramete
-    rs passed
+    Updates the specific invoice item category by setting the values of the
+    parameters passed
 
     Options:
           --help                      Show help                            [boolean]
-      -i, --invoice_item_category_id  The ID of the invoice item category you're upd
-                                      ating.                              [required]
+      -i, --invoice_item_category_id  The ID of the invoice item category you're
+                                      updating.                           [required]
       -n, --name                      The name of the invoice item category.
-      -f, --fields                    Comma separated list of fields to display in t
-                                      he output.
+      -f, --fields                    Comma separated list of fields to display in
+                                      the output.
       -o, --output                    The output format: json, table"
   `);
 });

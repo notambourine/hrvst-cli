@@ -18,12 +18,12 @@ test("hrvst clients update", async () => {
       -c, --client_id  The ID of the client you're updating.              [required]
       -n, --name       A textual description of the client.
       -i, --is_active  Whether the client is active, or archived. Defaults to true.
-      -a, --address      A textual representation of the client’s physical address.
+      -a, --address     A textual representation of the client’s physical address.
                         May include new line characters.
-      -u, --currency   The currency used by the client. If not provided, the company
-                       ’s currency will be used. See a list of supported currencies:
-                        https://help.getharvest.com/api-v2/introduction/overview/sup
-                       ported-currencies/
+      -u, --currency   The currency used by the client. If not provided, the
+                       company’s currency will be used. See a list of supported
+                       currencies: https://help.getharvest.com/api-v2/introduction/o
+                       verview/supported-currencies/
       -f, --fields     Comma separated list of fields to display in the output.
       -o, --output     The output format: json, table"
   `);

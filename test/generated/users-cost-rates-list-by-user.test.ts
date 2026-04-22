@@ -17,8 +17,8 @@ test("hrvst users cost-rates list-by-user", async () => {
           --help      Show help                                            [boolean]
       -u, --user_id   The ID of the user whose cost rates you're retrieving.
                                                                           [required]
-      -p, --page      The page number to use in pagination. Use \`all\` to retrieve al
-                      l pages.
+      -p, --page      The page number to use in pagination. Use \`all\` to retrieve
+                      all pages.
       -e, --per_page  The number of records to return per page. Can range between 1
                       and 2000.
       -f, --fields    Comma separated list of fields to display in the output.

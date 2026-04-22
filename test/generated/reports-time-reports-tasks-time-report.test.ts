@@ -11,17 +11,17 @@ test("hrvst reports time-reports tasks-time-report", async () => {
   expect(stdout).toMatchInlineSnapshot(`
     "cli.js reports time-reports tasks-time-report
 
-    Tasks Time Report shows the hours and billable information for each task where t
-    racked time is present for a given timeframe
+    Tasks Time Report shows the hours and billable information for each task where
+    tracked time is present for a given timeframe
 
     Options:
           --help      Show help                                            [boolean]
-      -f, --from      Only report on expenses with a spent_date on or after the give
-                      n date.                                             [required]
-      -t, --to        Only report on expenses with a spent_date on or before the giv
-                      en date.                                            [required]
-      -p, --page      The page number to use in pagination. Use \`all\` to retrieve al
-                      l pages.
+      -f, --from      Only report on expenses with a spent_date on or after the
+                      given date.                                         [required]
+      -t, --to        Only report on expenses with a spent_date on or before the
+                      given date.                                         [required]
+      -p, --page      The page number to use in pagination. Use \`all\` to retrieve
+                      all pages.
       -e, --per_page  The number of records to return per page. Can range between 1
                       and 2000.
       -i, --fields    Comma separated list of fields to display in the output.

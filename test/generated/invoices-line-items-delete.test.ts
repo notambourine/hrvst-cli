@@ -16,7 +16,7 @@ test("hrvst invoices line-items delete", async () => {
     Options:
           --help                   Show help                               [boolean]
       -i, --invoice_id             The ID of the invoice that contains the line item
-                                    you're deleting.                      [required]
+                                   you're deleting.                       [required]
       -l, --line_items[0]id        The ID of the line item you want to delete.
                                                                           [required]
       -n, --line_items[0]_destroy  Gives the command to delete the line item.

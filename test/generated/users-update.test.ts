@@ -21,26 +21,28 @@ test("hrvst users update", async () => {
       -t, --telephone                          The telephone number for the user.
       -i, --timezone                           The user’s timezone. Defaults to the
                                                company’s timezone.
-      -h, --has_access_to_all_future_projects  Whether the user should be automatica
-                                               lly added to future projects.
-      -s, --is_contractor                      Whether the user is a contractor or a
-                                               n employee.
-      -a, --is_active                          Whether the user is active or archive
-                                               d.
-      -w, --weekly_capacity                    The number of hours per week this per
-                                               son is available to work in seconds.
-      -d, --default_hourly_rate                The billable rate to use for this us
-                                               er when they are added to a project.
-
-      -c, --cost_rate                          The cost rate to use for this user w
-                                               hen calculating a project’s costs vs
-                                                billable amount.
-      -r, --roles[]                            Descriptive names of the business rol
-                                               es assigned to this person.
-      -o, --access_roles[]                     Access Role(s) that determine the use
-                                               r’s permissions in Harvest.
-          --fields                             Comma separated list of fields to dis
-                                               play in the output.
+      -h, --has_access_to_all_future_projects  Whether the user should be
+                                               automatically added to future
+                                               projects.
+      -s, --is_contractor                      Whether the user is a contractor or
+                                               an employee.
+      -a, --is_active                          Whether the user is active or
+                                               archived.
+      -w, --weekly_capacity                    The number of hours per week this
+                                               person is available to work in
+                                               seconds.
+      -d, --default_hourly_rate                The billable rate to use for this
+                                               user when they are added to a
+                                               project.
+      -c, --cost_rate                          The cost rate to use for this user
+                                               when calculating a project’s costs
+                                               vs billable amount.
+      -r, --roles[]                            Descriptive names of the business
+                                               roles assigned to this person.
+      -o, --access_roles[]                     Access Role(s) that determine the
+                                               user’s permissions in Harvest.
+          --fields                             Comma separated list of fields to
+                                               display in the output.
       -p, --output                             The output format: json, table"
   `);
 });

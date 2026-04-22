@@ -11,8 +11,8 @@ test("hrvst expenses categories update", async () => {
   expect(stdout).toMatchInlineSnapshot(`
     "cli.js expenses categories update
 
-    Updates the specific expense category by setting the values of the parameters pa
-    ssed
+    Updates the specific expense category by setting the values of the parameters
+    passed
 
     Options:
           --help                 Show help                                 [boolean]
@@ -22,11 +22,11 @@ test("hrvst expenses categories update", async () => {
       -u, --unit_name            The unit name of the expense category.
       -i, --unit_price           The unit price of the expense category.
 
-      -s, --is_active            Whether the expense category is active or archived
-                                 .
+      -s, --is_active            Whether the expense category is active or
+                                 archived.
 
-      -f, --fields               Comma separated list of fields to display in the ou
-                                 tput.
+      -f, --fields               Comma separated list of fields to display in the
+                                 output.
       -o, --output               The output format: json, table"
   `);
 });

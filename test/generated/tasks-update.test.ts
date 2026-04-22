@@ -14,16 +14,16 @@ test("hrvst tasks update", async () => {
     Options:
           --help                 Show help                                 [boolean]
       -t, --task_id              The ID of the task you're updating.      [required]
-      -n, --name                   The name of the task.
+      -n, --name                  The name of the task.
       -b, --billable_by_default  Used in determining whether default tasks should be
-                                  marked billable when creating a new project.
-      -d, --default_hourly_rate  The default hourly rate to use for this task when i
-                                 t is added to a project.
+                                 marked billable when creating a new project.
+      -d, --default_hourly_rate  The default hourly rate to use for this task when
+                                 it is added to a project.
       -i, --is_default           Whether this task should be automatically added to
                                  future projects.
       -s, --is_active            Whether this task is active or archived.
-      -f, --fields               Comma separated list of fields to display in the ou
-                                 tput.
+      -f, --fields               Comma separated list of fields to display in the
+                                 output.
       -o, --output               The output format: json, table"
   `);
 });

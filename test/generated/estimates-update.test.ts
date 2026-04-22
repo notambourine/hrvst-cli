@@ -17,15 +17,15 @@ test("hrvst estimates update", async () => {
           --help            Show help                                      [boolean]
       -e, --estimate_id     The ID of the estimate you're updating.       [required]
       -c, --client_id       The ID of the client this estimate belongs to.
-      -n, --number          If no value is set, the number will be automatically gen
-                            erated.
+      -n, --number          If no value is set, the number will be automatically
+                            generated.
       -p, --purchase_order  The purchase order number.
-      -t, --tax             This percentage is applied to the subtotal, including li
-                            ne items and discounts. Example: use 10.0 for 10.0%.
-      -a, --tax2            This percentage is applied to the subtotal, including li
-                            ne items and discounts. Example: use 10.0 for 10.0%.
-      -d, --discount        This percentage is subtracted from the subtotal. Example
-                            : use 10.0 for 10.0%.
+      -t, --tax             This percentage is applied to the subtotal, including
+                            line items and discounts. Example: use 10.0 for 10.0%.
+      -a, --tax2            This percentage is applied to the subtotal, including
+                            line items and discounts. Example: use 10.0 for 10.0%.
+      -d, --discount        This percentage is subtracted from the subtotal.
+                            Example: use 10.0 for 10.0%.
       -s, --subject         The estimate subject.
       -o, --notes           Any additional notes to include on the estimate.
       -u, --currency        The currency used by the estimate. If not provided, the

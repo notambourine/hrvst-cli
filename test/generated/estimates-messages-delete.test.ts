@@ -15,8 +15,8 @@ test("hrvst estimates messages delete", async () => {
 
     Options:
           --help         Show help                                         [boolean]
-      -e, --estimate_id  The ID of the invoice that contains the message you are del
-                         eting.                                           [required]
+      -e, --estimate_id  The ID of the invoice that contains the message you are
+                         deleting.                                        [required]
       -m, --message_id   The ID of the message you are deleting.          [required]
       -f, --fields       Comma separated list of fields to display in the output.
       -o, --output       The output format: json, table"

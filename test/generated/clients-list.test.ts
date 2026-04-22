@@ -13,14 +13,14 @@ test("hrvst clients list", async () => {
 
     Options:
           --help           Show help                                       [boolean]
-      -p, --per_page       The number of records to return per page. Can range betwe
-                           en 1 and 2000.
-      -i, --is_active      Pass true to only return active clients and false to retu
-                           rn inactive clients.
-      -u, --updated_since  Only return clients that have been updated since the give
-                           n date and time.
-      -a, --page           The page number to use in pagination. Use \`all\` to retrie
-                           ve all pages.
+      -p, --per_page       The number of records to return per page. Can range
+                           between 1 and 2000.
+      -i, --is_active      Pass true to only return active clients and false to
+                           return inactive clients.
+      -u, --updated_since  Only return clients that have been updated since the
+                           given date and time.
+      -a, --page           The page number to use in pagination. Use \`all\` to
+                           retrieve all pages.
       -f, --fields         Comma separated list of fields to display in the output.
       -o, --output         The output format: json, table"
   `);

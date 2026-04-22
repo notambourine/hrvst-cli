@@ -11,19 +11,19 @@ test("hrvst users project-assignments list-by-user", async () => {
   expect(stdout).toMatchInlineSnapshot(`
     "cli.js users project-assignments list-by-user
 
-    Returns a list of active project assignments for the user identified by \`USER_ID
-    \`
+    Returns a list of active project assignments for the user identified by
+    \`USER_ID\`
 
     Options:
           --help           Show help                                       [boolean]
-      -u, --user_id        The ID of the user whose project assignments you're listi
-                           ng.                                            [required]
-      -p, --updated_since  Only return project assignments that have been updated si
-                           nce the given date and time.
-      -a, --page           The page number to use in pagination. Use \`all\` to retrie
-                           ve all pages.
-      -e, --per_page       The number of records to return per page. Can range betwe
-                           en 1 and 2000.
+      -u, --user_id        The ID of the user whose project assignments you're
+                           listing.                                       [required]
+      -p, --updated_since  Only return project assignments that have been updated
+                           since the given date and time.
+      -a, --page           The page number to use in pagination. Use \`all\` to
+                           retrieve all pages.
+      -e, --per_page       The number of records to return per page. Can range
+                           between 1 and 2000.
       -f, --fields         Comma separated list of fields to display in the output.
       -o, --output         The output format: json, table"
   `);

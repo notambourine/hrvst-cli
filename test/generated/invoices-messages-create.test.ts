@@ -15,26 +15,26 @@ test("hrvst invoices messages create", async () => {
 
     Options:
           --help                            Show help                      [boolean]
-      -i, --invoice_id                      The ID of the invoice that you're creati
-                                            ng the message for.           [required]
+      -i, --invoice_id                      The ID of the invoice that you're
+                                            creating the message for.     [required]
       -r, --recipients[0]email              Email of the message recipient.
                                                                           [required]
       -e, --recipients[0]name               Name of the message recipient.[required]
       -s, --subject                         The message subject.
       -b, --body                            The message body.
       -n, --include_link_to_client_invoice  Whether to include a link to the client
-                                            invoice in the message body. Not used wh
-                                            en thank_you is true.
+                                            invoice in the message body. Not used
+                                            when thank_you is true.
       -a, --attach_pdf                      Whether to attach the invoice PDF to the
-                                             message email.
-      -d, --send_me_a_copy                  Whether to email a copy of the message t
-                                            o the current user.
+                                            message email.
+      -d, --send_me_a_copy                  Whether to email a copy of the message
+                                            to the current user.
       -t, --thank_you                       Whether this is a thank you message.
       -v, --event_type                      The type of invoice event that occurred
-                                            with the message: send, close, draft, re
-                                            -open, or view.
-      -f, --fields                          Comma separated list of fields to displa
-                                            y in the output.
+                                            with the message: send, close, draft,
+                                            re-open, or view.
+      -f, --fields                          Comma separated list of fields to
+                                            display in the output.
       -o, --output                          The output format: json, table"
   `);
 });

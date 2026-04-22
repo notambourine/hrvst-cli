@@ -19,7 +19,7 @@ test("hrvst users billable-rates create", async () => {
                                                                           [required]
       -a, --amount      The amount of the billable rate.                  [required]
       -s, --start_date  The date the billable rate is effective. Cannot be a date in
-                         the future.
+                        the future.
       -f, --fields      Comma separated list of fields to display in the output.
       -o, --output      The output format: json, table"
   `);

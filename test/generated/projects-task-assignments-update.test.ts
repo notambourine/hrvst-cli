@@ -11,21 +11,21 @@ test("hrvst projects task-assignments update", async () => {
   expect(stdout).toMatchInlineSnapshot(`
     "cli.js projects task-assignments update
 
-    Updates the specific task assignment by setting the values of the parameters pas
-    sed
+    Updates the specific task assignment by setting the values of the parameters
+    passed
 
     Options:
           --help                Show help                                  [boolean]
-      -p, --project_id          The ID of the project that contains the task assignm
-                                ents you're updating.                     [required]
+      -p, --project_id          The ID of the project that contains the task
+                                assignments you're updating.              [required]
       -t, --task_assignment_id  The ID of the task assignment you're updating.
                                                                           [required]
       -i, --is_active           Pass true to only return active task assignments and
-                                 false to return inactive task assignments.
+                                false to return inactive task assignments.
       -u, --update_since        Only return task assignments that have been updated
                                 since the given date and time.
-      -f, --fields              Comma separated list of fields to display in the out
-                                put.
+      -f, --fields              Comma separated list of fields to display in the
+                                output.
       -o, --output              The output format: json, table"
   `);
 });

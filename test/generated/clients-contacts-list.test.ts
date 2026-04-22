@@ -15,14 +15,14 @@ test("hrvst clients contacts list", async () => {
 
     Options:
           --help           Show help                                       [boolean]
-      -c, --client_id      Only return contacts belonging to the client with the giv
-                           en ID.
-      -u, --updated_since  Only return contacts that have been updated since the giv
-                           en date and time.
-      -p, --page           The page number to use in pagination. Use \`all\` to retrie
-                           ve all pages.
-      -e, --per_page       The number of records to return per page. Can range bet
-                           ween 1 and 2000.
+      -c, --client_id      Only return contacts belonging to the client with the
+                           given ID.
+      -u, --updated_since  Only return contacts that have been updated since the
+                           given date and time.
+      -p, --page           The page number to use in pagination. Use \`all\` to
+                           retrieve all pages.
+      -e, --per_page       The number of records to return per page. Can range
+                           between 1 and 2000.
       -f, --fields         Comma separated list of fields to display in the output.
       -o, --output         The output format: json, table"
   `);

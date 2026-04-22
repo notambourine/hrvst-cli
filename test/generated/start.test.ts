@@ -16,20 +16,20 @@ test("hrvst start", async () => {
 
     Options:
           --help                           Show help                       [boolean]
-      -p, --project_id                     The ID of the project to associate with t
-                                           he time entry.
+      -p, --project_id                     The ID of the project to associate with
+                                           the time entry.
       -t, --task_id                        The ID of the task to associate with the
                                            time entry.
       -n, --notes                          Any notes to be associated with the time
                                            entry.
-      -e, --external_reference[id]         The ID of the service's equivalent of a t
-                                           ask, card, etc.                 [boolean]
-      -x, --external_reference[group_id]   The ID of the service's equivalent of a p
-                                           roject, board, etc.
-      -r, --external_reference[permalink]  The URL of where the time is being tracke
-                                           d.
+      -e, --external_reference[id]         The ID of the service's equivalent of a
+                                           task, card, etc.                [boolean]
+      -x, --external_reference[group_id]   The ID of the service's equivalent of a
+                                           project, board, etc.
+      -r, --external_reference[permalink]  The URL of where the time is being
+                                           tracked.
       -f, --fields                         Comma separated list of fields to display
-                                            in the output.
+                                           in the output.
       -o, --output                         The output format: json, table
       -e, --editor                         Launch editor to add notes      [boolean]"
   `);

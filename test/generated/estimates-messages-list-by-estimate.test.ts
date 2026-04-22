@@ -17,12 +17,12 @@ test("hrvst estimates messages list-by-estimate", async () => {
           --help           Show help                                       [boolean]
       -e, --estimate_id    The ID of the estimate that contains the messages you're
                            retrieving.                                    [required]
-      -u, --updated_since  Only return estimate messages that have been updated sinc
-                           e the given date and time.
-      -p, --page           The page number to use in pagination. Use \`all\` to retrie
-                           ve all pages.
-      -r, --per_page       The number of records to return per page. Can range betwe
-                           en 1 and 2000.
+      -u, --updated_since  Only return estimate messages that have been updated
+                           since the given date and time.
+      -p, --page           The page number to use in pagination. Use \`all\` to
+                           retrieve all pages.
+      -r, --per_page       The number of records to return per page. Can range
+                           between 1 and 2000.
       -f, --fields         Comma separated list of fields to display in the output.
       -o, --output         The output format: json, table"
   `);

@@ -15,17 +15,17 @@ test("hrvst projects task-assignments create", async () => {
 
     Options:
           --help         Show help                                         [boolean]
-      -p, --project_id   The ID of the project that you're creating the task assignm
-                         ent for.                                         [required]
+      -p, --project_id   The ID of the project that you're creating the task
+                         assignment for.                                  [required]
       -t, --task_id      The ID of the task to associate with the project.[required]
       -i, --is_active    Whether the task assignment is active or archived. Defaults
-                          to true.
+                         to true.
       -b, --billable     Whether the task assignment is billable or not. Defaults to
-                          false.
+                         false.
       -h, --hourly_rate  Rate used when the project’s bill_by is Tasks. Defaults to
                          null when billing by task hourly rate, otherwise 0.
-      -u, --budget       Budget used when the project’s budget_by is task or task_fe
-                         es.
+      -u, --budget       Budget used when the project’s budget_by is task or
+                         task_fees.
       -f, --fields       Comma separated list of fields to display in the output.
       -o, --output       The output format: json, table"
   `);
