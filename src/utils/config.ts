@@ -29,27 +29,21 @@ export async function getConfig(): Promise<Config> {
 }
 
 export async function saveConfig(config: Partial<Config>): Promise<void> {
+  const filePath = await configPath();
+  let merged: Partial<Config>;
   try {
-    const existingConfig = await getConfig();
-
-    await fs.promises.writeFile(
-      await configPath(),
-      JSON.stringify(Object.assign({}, existingConfig, config)),
-      { mode: 0o600 },
-    );
-  } catch (error) {
-    await fs.promises.writeFile(await configPath(), JSON.stringify(config), {
-      mode: 0o600,
-    });
+    merged = Object.assign({}, await getConfig(), config);
+  } catch {
+    merged = config;
   }
+  await fs.promises.writeFile(filePath, JSON.stringify(merged), {
+    mode: 0o600,
+  });
+  await fs.promises.chmod(filePath, 0o600);
 }
 
 async function configPath(): Promise<string> {
   const dir = path.join(ospath.home(), ".hrvst");
-
-  if (!fs.existsSync(dir)) {
-    await fs.promises.mkdir(dir, { mode: 0o700 });
-  }
-
+  await fs.promises.mkdir(dir, { recursive: true, mode: 0o700 });
   return path.join(dir, "config.json");
 }

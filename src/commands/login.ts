@@ -13,9 +13,9 @@ export const command = "login";
 export const description = "Log into Harvest";
 export const builder = {};
 
-const LOGIN_TIMEOUT_MS = 5 * 60 * 1000; // 5 minutes
+const LOGIN_TIMEOUT_MS = 5 * 60 * 1000;
 
-const LOGIN_HTML = `<!DOCTYPE html>
+const page = (heading: string, body: string) => `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -23,55 +23,47 @@ const LOGIN_HTML = `<!DOCTYPE html>
     <title>hrvst-cli</title>
   </head>
   <body style="background: #eee; font-family: Arial, Helvetica, sans-serif">
-    <main
-      style="
-        display: flex;
-        flex-grow: 1;
-        justify-content: center;
-        margin: 80px auto;
-      "
-    >
-      <div
-        style="
-          background: #fff;
-          background-clip: padding-box;
-          border: 1px solid rgba(0, 0, 0, 0.2);
-          border-radius: 6px;
-          box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
-          padding: 1em;
-          text-align: center;
-        "
-      >
-        <h1 style="font-weight: 600; margin: 0.25em 0">hrvst-cli</h1>
-        <p>You may now close this window and return to the CLI.</p>
+    <main style="display: flex; justify-content: center; margin: 80px auto;">
+      <div style="background: #fff; border: 1px solid rgba(0, 0, 0, 0.2); border-radius: 6px; box-shadow: 0 2px 10px rgb(0 0 0 / 10%); padding: 1em 2em; text-align: center;">
+        <h1 style="font-weight: 600; margin: 0.25em 0">${heading}</h1>
+        <p>${body}</p>
       </div>
     </main>
   </body>
 </html>`;
 
-export const handler = async (): Promise<void> => {
+const SUCCESS_HTML = page(
+  "hrvst-cli",
+  "You may now close this window and return to the CLI.",
+);
+const ERROR_HTML = page(
+  "hrvst-cli — login failed",
+  "Authentication was not completed. Return to the CLI for details.",
+);
+
+export interface LoginOptions {
+  port?: number;
+}
+
+export const handler = async (
+  opts: LoginOptions = {},
+): Promise<http.Server> => {
   const state = crypto.randomBytes(16).toString("hex");
 
   const server = http
     .createServer(async (req, res) => {
       const queryString = req.url?.split("?")[1] || "";
       const params = new URLSearchParams(queryString);
+      let responseHtml = SUCCESS_HTML;
 
       const error = params.get("error");
       if (error) {
         console.error(chalk.red("Authentication error."));
+        responseHtml = ERROR_HTML;
+      } else if (params.get("state") !== state) {
+        console.error(chalk.red("Invalid state parameter. Login aborted."));
+        responseHtml = ERROR_HTML;
       } else {
-        const returnedState = params.get("state");
-        if (returnedState !== state) {
-          console.error(chalk.red("Invalid state parameter. Login aborted."));
-          res.write(LOGIN_HTML);
-          res.end();
-          req.socket.end();
-          req.socket.destroy();
-          server.close();
-          return;
-        }
-
         const accessToken = params.get("access_token");
         const scope = params.get("scope");
 
@@ -87,17 +79,18 @@ export const handler = async (): Promise<void> => {
           console.error(
             chalk.red("Error getting access token and account id."),
           );
+          responseHtml = ERROR_HTML;
         }
       }
 
-      res.write(LOGIN_HTML);
+      res.write(responseHtml);
       res.end();
 
       req.socket.end();
       req.socket.destroy();
       server.close();
     })
-    .listen(PORT, "localhost");
+    .listen(opts.port ?? PORT, "localhost");
 
   const timeout = setTimeout(() => {
     server.close();
@@ -106,7 +99,11 @@ export const handler = async (): Promise<void> => {
 
   server.on("close", () => clearTimeout(timeout));
 
+  await new Promise<void>((resolve) => server.once("listening", resolve));
+
   open(
     `${BASE_URL}/oauth2/authorize?client_id=${CLIENT_ID}&response_type=token&state=${state}`,
   );
+
+  return server;
 };
