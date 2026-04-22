@@ -1,19 +1,28 @@
 {
-  "name": "hrvst-cli",
-  "version": "3.0.0",
-  "description": "CLI for Harvest",
+  "name": "@notambourine/hrvst-cli",
+  "version": "3.1.0",
+  "description": "CLI for Harvest (NoTambourine fork)",
   "author": {
-    "name": "Kishan Gajera",
-    "url": "http://github.com/kgajera"
+    "name": "NoTambourine",
+    "url": "https://github.com/notambourine"
   },
+  "contributors": [
+    {
+      "name": "Kishan Gajera",
+      "url": "https://github.com/kgajera"
+    }
+  ],
   "license": "MIT",
-  "homepage": "https://kgajera.github.io/hrvst-cli",
+  "homepage": "https://github.com/notambourine/hrvst-cli#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kgajera/hrvst-cli.git"
+    "url": "git+https://github.com/notambourine/hrvst-cli.git"
   },
   "bugs": {
-    "url": "https://github.com/kgajera/hrvst-cli/issues"
+    "url": "https://github.com/notambourine/hrvst-cli/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "cli",
@@ -35,41 +44,43 @@
     "lint:fix": "bun run lint -- --fix",
     "generate": "bun run scripts/generate-cli.ts",
     "start": "node dist/cli.js",
-    "test": "vitest",
-    "watch": "bun run build --watch"
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "watch": "bun run build --watch",
+    "prepublishOnly": "bun run build"
   },
   "dependencies": {
-    "chalk": "^5.3.0",
+    "chalk": "^5.6.2",
     "cli-table3": "^0.6.5",
-    "inquirer": "^11.0.2",
-    "lodash": "^4.17.21",
-    "open": "^10.1.0",
+    "inquirer": "^13.4.2",
+    "lodash": "^4.18.1",
+    "open": "^11.0.0",
     "ora": "^8.1.0",
     "ospath": "^1.2.2",
-    "postman-collection": "^4.5.0",
+    "postman-collection": "^5.3.0",
     "update-notifier": "^7.3.1",
-    "yargs": "^17.7.2"
+    "yargs": "^18.0.0"
   },
   "devDependencies": {
     "@types/bun": "^1.1.9",
-    "@types/inquirer": "^9.0.7",
-    "@types/lodash": "^4.17.7",
-    "@types/node": "^20.11.28",
+    "@types/inquirer": "^9.0.9",
+    "@types/lodash": "^4.17.24",
+    "@types/node": "^25.6.0",
     "@types/ospath": "^1.2.3",
-    "@types/postman-collection": "^3.5.10",
+    "@types/postman-collection": "^3.5.11",
     "@types/prettier": "^3.0.0",
-    "@types/supertest": "^6.0.2",
-    "@types/update-notifier": "^6.0.2",
-    "@types/yargs": "^17.0.33",
-    "@typescript-eslint/eslint-plugin": "^4.28.5",
-    "@typescript-eslint/parser": "^4.28.5",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "execa": "^8.0.1",
-    "prettier": "^3.3.3",
-    "supertest": "^6.3.4",
-    "typescript": "^5.6.2",
-    "vitest": "^2.1.1"
+    "@types/supertest": "^7.2.0",
+    "@types/update-notifier": "^6.0.8",
+    "@types/yargs": "^17.0.35",
+    "@typescript-eslint/eslint-plugin": "^8.59.0",
+    "@typescript-eslint/parser": "^8.59.0",
+    "eslint": "^10.2.1",
+    "eslint-config-prettier": "^10.1.8",
+    "execa": "^9.6.1",
+    "prettier": "^3.8.3",
+    "supertest": "^7.2.2",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.5"
   },
   "files": [
     "/dist"
