@@ -24,7 +24,7 @@ export async function getConfig(): Promise<Config> {
   try {
     const config = await fs.promises.readFile(await configPath(), "utf-8");
     return JSON.parse(config);
-  } catch (error) {
+  } catch {
     throw new ConfigNotFoundError();
   }
 }
