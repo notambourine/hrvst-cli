@@ -40,7 +40,7 @@
     "build": "bun build src/cli.ts --minify --outdir ./dist --packages external --target node",
     "format": "prettier --check .",
     "format:write": "prettier --write .",
-    "lint": "eslint . --ext .ts",
+    "lint": "eslint .",
     "lint:fix": "bun run lint -- --fix",
     "generate": "bun run scripts/generate-cli.ts",
     "start": "node dist/cli.js",
@@ -62,6 +62,7 @@
     "yargs": "^18.0.0"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/bun": "^1.1.9",
     "@types/inquirer": "^9.0.9",
     "@types/lodash": "^4.17.24",
@@ -72,14 +73,13 @@
     "@types/supertest": "^7.2.0",
     "@types/update-notifier": "^6.0.8",
     "@types/yargs": "^17.0.35",
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0",
-    "eslint": "^8.57.1",
-    "eslint-config-prettier": "^9.1.0",
+    "eslint": "^10.4.1",
+    "eslint-config-prettier": "^10.1.8",
     "execa": "^9.6.1",
     "prettier": "^3.8.3",
     "supertest": "^7.2.2",
     "typescript": "^6.0.3",
+    "typescript-eslint": "^8.60.0",
     "vitest": "^4.1.5"
   },
   "files": [

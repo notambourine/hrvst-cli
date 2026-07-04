@@ -34,7 +34,7 @@ const descriptionOverrides = {
   page: "The page number to use in pagination. Use `all` to retrieve all pages.",
 } as Record<string, string>;
 
-yargs(hideBin(process.argv))
+void yargs(hideBin(process.argv))
   .command<Arguments<{ postmanExportFile: string }>>(
     "$0 <postman-export-file>",
     "Generate yargs commands from a Postman Collection v2.1 export",
