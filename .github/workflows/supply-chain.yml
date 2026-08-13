@@ -7,7 +7,8 @@ permissions:
   contents: read
 jobs:
   vet:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
+    timeout-minutes: 10
     permissions: # job-scoped, NOT workflow-level — keeps write perms off the other jobs
       contents: read
       pull-requests: write # vet-action comments findings on the PR
@@ -27,7 +28,8 @@ jobs:
           # active malware analysis. Omit → community Insights (CVE + known-
           # malicious for public packages work; degrades silently otherwise).
   guarddog:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
@@ -45,6 +47,7 @@ jobs:
         run: uvx guarddog npm verify package.json -r typosquatting -r potentially_compromised_email_domain -r unclaimed_maintainer_email_domain -r deceptive_author --exit-non-zero-on-finding
   socket-tree:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
