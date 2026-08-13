@@ -1,0 +1,13 @@
+# Algolia DocSearch search-only key for app 7T7NPZ0ZD9, upstream
+# kgajera/hrvst-cli. Public by design - DocSearch ships it in client-side JS.
+# History-only: website/ was deleted in b4557df. One entry for the source, the
+# rest for the built gh-pages bundles that inlined it.
+22a4e582639960592ef53a1d8e53a2953fb9ca21:website/docusaurus.config.js:generic-api-key:79
+eb42a1f3082435d3a5f0a94b622ec65508eec82e:assets/js/main.d8a1b91d.js:generic-api-key:2
+788d552721927504fad8336b32ff99af349eadca:assets/js/main.ca8c82f7.js:generic-api-key:2
+4bdfcde269b0155fe92aa2ac15847a2f728bd4be:assets/js/main.937900ce.js:generic-api-key:2
+f3f172f6e3271817e0768ef3b41cab2d0692054b:assets/js/main.fa48fef1.js:generic-api-key:2
+e96f737c270cd59cef924ca07956777b7da851f3:assets/js/main.8fec8e7c.js:generic-api-key:2
+60cbf72d08c9afd22e364e7bd72bed8dc9f8fe33:assets/js/main.94fd7e7f.js:generic-api-key:2
+70791b03d77b82c825c6abc71268a8bef6b39fa7:assets/js/main.787f216c.js:generic-api-key:2
+678bf0b9b2d376e1ab69f07b107c8315096211b9:assets/js/main.830d01b8.js:generic-api-key:2
